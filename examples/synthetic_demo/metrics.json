@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-24T21:56:08.958692+00:00",
+  "data_kind": "synthetic-demo",
+  "seed": 42,
+  "selected_model": "logistic_regression",
+  "selection_metric": "validation ROC-AUC",
+  "decision_threshold": 0.5,
+  "split_rows": {
+    "train": 300,
+    "validation": 100,
+    "test": 100
+  },
+  "positive_fraction": {
+    "train": 0.37,
+    "validation": 0.37,
+    "test": 0.37
+  },
+  "feature_count_before_encoding": 42,
+  "history_tables_used": true,
+  "validation": {
+    "dummy": {
+      "roc_auc": 0.5,
+      "average_precision": 0.37,
+      "brier_score": 0.23309999999999995,
+      "precision_at_0_5": 0.0,
+      "recall_at_0_5": 0.0,
+      "confusion_matrix_at_0_5": [
+        [
+          63,
+          0
+        ],
+        [
+          37,
+          0
+        ]
+      ]
+    },
+    "logistic_regression": {
+      "roc_auc": 0.8146718146718147,
+      "average_precision": 0.6802510538149116,
+      "brier_score": 0.1698628363406907,
+      "precision_at_0_5": 0.75,
+      "recall_at_0_5": 0.5675675675675675,
+      "confusion_matrix_at_0_5": [
+        [
+          56,
+          7
+        ],
+        [
+          16,
+          21
+        ]
+      ]
+    },
+    "random_forest": {
+      "roc_auc": 0.8099528099528099,
+      "average_precision": 0.6441995818552709,
+      "brier_score": 0.17831330760571718,
+      "precision_at_0_5": 0.7142857142857143,
+      "recall_at_0_5": 0.5405405405405406,
+      "confusion_matrix_at_0_5": [
+        [
+          55,
+          8
+        ],
+        [
+          17,
+          20
+        ]
+      ]
+    },
+    "xgboost": {
+      "roc_auc": 0.7872157872157872,
+      "average_precision": 0.645809027557444,
+      "brier_score": 0.19757460057735443,
+      "precision_at_0_5": 0.625,
+      "recall_at_0_5": 0.5405405405405406,
+      "confusion_matrix_at_0_5": [
+        [
+          51,
+          12
+        ],
+        [
+          17,
+          20
+        ]
+      ]
+    }
+  },
+  "selected_model_test": {
+    "roc_auc": 0.8043758043758044,
+    "average_precision": 0.6729683588778229,
+    "brier_score": 0.17398675579645098,
+    "precision_at_0_5": 0.75,
+    "recall_at_0_5": 0.4864864864864865,
+    "confusion_matrix_at_0_5": [
+      [
+        57,
+        6
+      ],
+      [
+        19,
+        18
+      ]
+    ]
+  },
+  "versions": {
+    "python": "3.12.14",
+    "sklearn": "1.8.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "parameters": {
+    "dummy": "DummyClassifier()",
+    "logistic_regression": "LogisticRegression(C=0.5, max_iter=3000, random_state=42, solver='liblinear')",
+    "random_forest": "RandomForestClassifier(max_depth=12, min_samples_leaf=5, n_estimators=40,\n                       n_jobs=1, random_state=42)",
+    "xgboost": "XGBClassifier(base_score=None, booster=None, callbacks=None,\n              colsample_bylevel=None, colsample_bynode=None,\n              colsample_bytree=None, device=None, early_stopping_rounds=None,\n              enable_categorical=True, eval_metric='auc', feature_types=None,\n              feature_weights=None, gamma=None, grow_policy=None,\n              importance_type=None, interaction_constraints=None,\n              learning_rate=0.05, max_bin=None, max_cat_threshold=None,\n              max_cat_to_onehot=None, max_delta_step=None, max_depth=5,\n              max_leaves=None, min_child_weight=None, missing=nan,\n              monotone_constraints=None, multi_strategy=None, n_estimators=300,\n              n_jobs=1, num_parallel_tree=None, ...)"
+  },
+  "limitations": [
+    "Random applicant split is not a temporal or external validation.",
+    "Probabilities are not calibrated or approved for lending decisions.",
+    "Repeated experimentation on this test partition invalidates its holdout status."
+  ],
+  "submission_model_note": "Refit on all labeled rows after evaluation. It has no independent score here."
+}
